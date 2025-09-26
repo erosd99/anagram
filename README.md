@@ -8,7 +8,7 @@ Simple anagram solver, separated into frontend and backend components, and built
     docker compose up --build
 ```
 
-After the build finishes, navigate to (http://localhost:4200)[localhost].
+After the build finishes, navigate to (http://localhost:8080)[localhost].
 
 ## Testing
 

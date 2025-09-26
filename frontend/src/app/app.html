@@ -1,0 +1,26 @@
+<div class="main">
+  <h1>{{ componentTitle }}</h1>
+  <label for="findAnagramInput">Word to search: </label>
+  <input
+    #anagram
+    placeholder="Enter a word..."
+    (keyup.enter)="findAnagrams(anagram.value)"
+    id="findAnagramInput"
+  />
+
+  <button (click)="findAnagrams(anagram.value)">Search anagrams</button>
+
+  <!-- TODO: Figure out a way to only show text after first fired event. A simple boolean flag doesn't worrk.-->
+  @if(error) {
+  <div style="color: red">{{ error }}</div>
+  } @else if (result.length === 0){
+  <div>The input has no anagrams</div>
+  } @else {
+  <p>The server found the following anagrams for {{ anagram.value }}:</p>
+  <ul>
+    @for (item of result; track item.name) {
+    <li>{{item.name}}</li>
+    }
+  </ul>
+  }
+</div>

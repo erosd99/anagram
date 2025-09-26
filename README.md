@@ -1,59 +1,32 @@
-# Anagram
+# Anagram solver
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
+Simple anagram solver, separated into frontend and backend components, and built with docker
 
-## Development server
-
-To start a local development server, run:
+## How to run
 
 ```bash
-ng serve
+    docker compose up --build
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+After the build finishes, navigate to (http://localhost:4200)[localhost].
 
-## Code scaffolding
+## Testing
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+You can run tests by navigating to the backend folder, and running
 
 ```bash
-ng generate component component-name
+  bun test
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+PSA: If you don't have bun installed, follow the install instruction (https://bun.com/docs/installation)[here]
+TODO: This should be automated for first time setup.
 
-```bash
-ng generate --help
-```
+## Simple improvements, which I didn't have time to do
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. CI/CD pipeline
+  1. Automatic deployment
+  2. Run tests before every PR
+2. Only show "No anagrams found for input" text after first click
+3. Styling framework
+4. Bun test as a build step. Simply don't have the necessary experience to decide whether it should be a separate step, or part of the build process.
+  Currently my intuition leads me to it being separate, as we don't want local builds to fail on test fails - it would only make debugging harder.
